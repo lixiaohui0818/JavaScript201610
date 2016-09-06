@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var strCode='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    //while条件：确保字符串的长度小于4
+    //把每次取到的随机数对应的值，在字符串中进行查找，如果没有，才给字符串拼接；
+    var str='';
+    while(str.length<4){
+        var rnd=Math.round(Math.random()*61);
+        //判断str中是否有rnd对应的值；如果没有，才把这个值跟str进行拼接；
+        var s=strCode.charAt(rnd);//随机数对应值；
+        if(str.search(s)===-1){//说明字符串中不存在
+            str+=s;
+        }
+    }
+    document.write(str);
+</script>
+</body>
+</html>

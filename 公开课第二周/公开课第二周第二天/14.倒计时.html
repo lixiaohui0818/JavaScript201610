@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            font-size: 40px;
+        }
+        span{
+            font-size: 60px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div>距离下课还剩<span>00天 00:00:00</span>时间</div>
+<script>
+    var oSpan=document.getElementsByTagName('span')[0];
+    function toDou(n){
+        return n>=0 && n<10? '0'+n :''+n;
+    }
+    function cuntDown(){
+        var oDate=new Date();
+        //设置未来时间的时候，一定要用/杠，否则不兼容；
+        var newDate=new Date('2016/9/31 18:00:00');
+       // alert(newDate.getTime()-oDate.getTime());
+        var s=Math.floor((newDate-oDate)/1000);
+        if(s<=0){
+            clearInterval(timer);
+            oSpan.innerHTML='您来晚了，活动已结束';
+            oSpan.style.color='#ccc'
+            return;
+        }
+        //24*60*60=86400；
+        var d=Math.floor(s/86400);
+        s%=86400; //剩余的秒数；
+        var h=Math.floor(s/3600);
+        s%=3600;
+        var m=Math.floor(s/60);
+        s%=60;
+        oSpan.innerHTML=toDou(d)+'天'+toDou(h)+':'+toDou(m)+':'+toDou(s);
+    }
+    cuntDown();
+    var timer=setInterval(cuntDown,1000);
+</script>
+</body>
+</html>

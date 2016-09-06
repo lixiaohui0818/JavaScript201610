@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    //需求：4个不重复的随机验证码
+    var strCode='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    var ary=[]; //数组是用来去重的；
+    var str=''; //拼接不重复的验证码
+    for(var i=0; i<4; i++){
+        var rnd=Math.round(Math.random()*61);
+        if(ary.indexOf(rnd)!==-1){//说明数组中重复了
+            i--;
+        }else{
+            ary.push(rnd);
+            str+=strCode.charAt(rnd); //在往数组中放不重复的随机数的时候，我们可以把这个不重复的随机数做为下标，拼接他对应的字符；
+        }
+    }
+    document.write(str);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul>
+    <li>0</li>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+<script>
+    //getChildren：获取当前元素ul下所有的子元素；
+    /*
+    * 参数：当前元素
+    * 返回值：当前元素下的所有的子元素
+    * 1.思路：
+    * 1）拿到所有的子节点
+    * 2）判断所有的子节点，看谁的nodeType==1;符合要求的，被放入新数组；
+    * 3）返回数组；
+    * */
+    var oUl=document.getElementsByTagName('ul')[0];
+    var aLi=getChildren(oUl);
+    console.log(aLi.length)
+    function getChildren(curEle){
+        var ary=[];
+        var aChilds=curEle.childNodes; //拿到当前元素下所有的子节点
+        //判断所有的子节点，看谁的nodeType==1;符合要求的，被放入新数组；
+        for(var i=0; i<aChilds.length; i++){
+            var cur=aChilds[i];
+            if(cur && cur.nodeType==1){//节点存在并且节点类型==1；
+                ary.push(cur);
+            }
+        }
+        return ary;
+    }
+</script>
+</body>
+</html>

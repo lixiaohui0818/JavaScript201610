@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<p id="p1"></p>
+<script>
+    var oP=document.getElementsByTagName('p')[0];
+    //需求1：拿到zIndex的属性值；
+    //alert(oP.id) //用点来操作，无法拿到元素的自定义属性；
+    //alert(oP.getAttribute('zIndex'));//用getAttribute可以拿到元素上的自定义属性；
+    //需求2:给p标签上设置一个zIndex=123的自定义属性；
+   /* oP.zIndex='123'; //通过JS来设置元素的自定义属性；
+    alert(oP.zIndex)*/
+    /*oP.setAttribute('zIndex','123'); //设置
+    //alert(oP.getAttribute('zIndex'))
+    alert(oP.zIndex) //获取*/
+    oP.zIndex='123';//在Js中设置自定义属性，可以设置上，但是，在结构中看不到；
+    alert(oP.zIndex)
+    alert(oP.getAttribute('zIndex'));
+
+</script>
+</body>
+</html>

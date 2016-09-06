@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        li{
+            height: 40px;
+        }
+        li.bg0{
+            background: lightcyan;
+        }
+        li.bg1{
+            background: lightgreen;
+        }
+        li.bg2{
+            background: lightgoldenrodyellow;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<script>
+    var aLi=document.getElementsByTagName('li');
+
+    /*for(var i=0; i<aLi.length; i++){
+        aLi[i].className='bg'+i%3;
+    }*/
+    //把for循环改成while循环 且 把switch判断 改成if...else判断
+    /*for(var i=0; i<aLi.length; i++){
+        switch (i%3){
+            case 0:
+                aLi[i].className='bg0';
+                break;
+            case 1:
+                aLi[i].className='bg1';
+                break;
+            default :
+                aLi[i].className='bg2';
+                break;
+        }
+    }*/
+    var i=0;
+    while(i<aLi.length){
+        if(i%3==0){
+            aLi[i].className='bg0';
+        }else if(i%3==1){
+            aLi[i].className='bg1';
+        }else{
+            aLi[i].className='bg2';
+        }
+        i++; //如果不写i++;一定是死循环
+    }
+
+
+</script>
+</body>
+</html>

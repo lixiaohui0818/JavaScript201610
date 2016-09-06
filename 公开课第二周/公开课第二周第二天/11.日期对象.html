@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+<div>00:00:00</div>
+<script>
+    var oP=document.getElementsByTagName('div')[0];
+
+    function getTime(){
+        var oDate=new Date(); //实例 对象
+        var y=oDate.getFullYear();
+        var m=oDate.getMonth()+1; //获取月份的时候，一定要+1；
+        var d=oDate.getDate(); //日期 几号
+        var week=oDate.getDay();//星期日：0,1,2,3,4,5,6
+        var h=oDate.getHours();
+        var min=oDate.getMinutes();
+        var s=oDate.getSeconds();
+        var str=h+':'+min+':'+s;
+        oP.innerHTML=str;
+    }
+    getTime();
+    var timer=setInterval(getTime,1000)
+    /*var ary=['日','一','二','三','四','五','六']
+    alert('今天星期'+ary[week]);*/
+</script>
+</body>
+</html>

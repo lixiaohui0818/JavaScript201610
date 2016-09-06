@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ary=[21,23,6,4];
+    function insertSort(ary){
+        //1.先给左数组一张牌:随便给的
+        var left=ary.splice(0,1);
+        //2.拿ary中的每一项跟left中的每一项，从后往前的比较；如果比他大，放到左手这张牌的下张牌的前面；如果比他小，继续往左比较，如果比到开头，还是比他小，放到左手的第一个位置；
+        for(var i=0; i<ary.length; i++){
+            var cur=ary[i];//代表数组中的每张牌；
+            for(var j=left.length-1; j>=0;){//注意：left应该从后往前的循环
+                if(cur<left[j]){ //最后一张牌 比左手排小
+                    j--;
+                    if(j==-1){ //已经比到头了
+                        left.unshift(cur);
+                    }
+                }else{//比左手牌大；
+                    left.splice(j+1,0,cur);
+                    break;//跳出循环
+                }
+            }
+        }
+        return left;
+    }
+    console.log(insertSort(ary))
+</script>
+</body>
+</html>

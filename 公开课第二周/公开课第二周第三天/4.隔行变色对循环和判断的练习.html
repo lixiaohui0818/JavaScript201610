@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        li{
+            height:40px;
+        }
+        li.bg0{
+            background: lightblue;
+        }
+        li.bg1{
+            background: lightgoldenrodyellow;
+        }
+        li.bg2{
+            background: lightgreen;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<script>
+    var aLi=document.getElementsByTagName('li');
+    //1.for循环和if..elseif来实现
+    /*for(var i=0; i<aLi.length; i++){
+        //关于%的小技巧：有几种情况，就%几
+        //等号是用来赋值的；
+        /!*var bg=null;
+        if(i%3==0){
+            bg='bg0';
+        }else if(i%3==1){
+            bg='bg1';
+        }else{
+            bg='bg2';
+        }
+        aLi[i].className=bg;*!/
+        var bg=i%2==0?'bg0':'bg1';
+        aLi[i].className=bg;
+    }*/
+    //2.while循环和switch来实现；
+    var i=0;//定义阶段
+    while(i<aLi.length){//条件  --有条件一定要自增，否则死循环
+        switch (i%3){
+            case 0:
+                aLi[i].className='bg0';
+                break;
+            case 1:
+                aLi[i].className='bg1';
+                break;
+            default :
+                aLi[i].className='bg2';
+                break;
+        }
+        i++; //自增
+    }
+</script>
+</body>
+</html>

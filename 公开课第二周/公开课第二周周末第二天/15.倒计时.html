@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        div{
+            width: 400px;
+            margin:50px auto;
+            font-size: 30px;
+        }
+        div p{
+            font-size: 50px;
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div>距离下课还有 <p>0天 00:00:00</p></div>
+<script>
+    //倒计时：未来的时间-现在时间
+    /*
+    * 知道：未来距离1970年1月1日 00:00:00的毫秒数
+    * 知道：现在距离1970年1月1日 00:00:00的毫秒数
+    * 通过以上两点：求出现在距离未来的毫秒数
+    * */
+    var oP=document.getElementsByTagName('p')[0];
+    function toDou(n){
+        return n>=0 && n<10 ? '0' + n: ''+n;
+    }
+    function countDown(){
+        var oDate=new Date;//现在的日期对象--永远拿的是最新时间
+        var newDate=new Date('2016/9/4 18:00:00'); //未来时间
+        //alert(newDate.getTime())
+        //思路1：用getTime（）求毫秒差
+        //var s=newDate.getTime()-oDate.getTime();
+        var s=Math.floor((newDate-oDate)/1000); //未来跟现在之间的秒差；
+        if(s<=0){
+            clearInterval(timer);
+            oP.innerHTML='下课了';
+            oP.style.color='#ccc';
+            return;
+        }
+        //24*60*60=86400秒
+        var d=Math.floor(s/86400);
+        s%=86400; //求剩下的秒数
+        var h=Math.floor(s/3600);
+        s%=3600;
+        var m=Math.floor(s/60);
+        s%=60; //最后的秒数
+        var str=toDou(d)+'天 '+toDou(h)+':'+toDou(m)+':'+toDou(s);
+        oP.innerHTML=str;
+    }
+    countDown();
+    var timer=setInterval(countDown,1000);
+</script>
+</body>
+</html>

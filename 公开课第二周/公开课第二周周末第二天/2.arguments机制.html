@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //可以根据arguments接收的参数个数，决定我们要接收几个形参
+    //实参给形参传值，默认情况下，是从左往右一个个的传值的；
+    //arguments.callee//代表当前函数本身
+    function fn(){
+        //console.dir(arguments.length)
+        console.log(arguments.callee)
+    }
+    fn(1,3,4)
+</script>
+</body>
+</html>

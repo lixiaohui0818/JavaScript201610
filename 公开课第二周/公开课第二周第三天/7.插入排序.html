@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ary=[23,14,2,6];
+    /*思路
+    * 1.给left数组一个值；
+    * 2.拿ary中的每一个，跟left从后往前的进行比较，比他大，放在他的下一张的前面，比他小，继续往左比较，一直比到开头，还小，插入left第一个；
+    * 注意：当已经插入后，就不再循环比较了，所以应该跳出循环，用break；
+    * */
+    function insertSort(ary){
+        var left=ary.splice(0,1);
+        for(var i=0; i<ary.length; i++){
+            var cur=ary[i];
+            for(var j=left.length-1; j>=0;){
+                if(cur<=left[j]){
+                    j--;
+                    if(j==-1){
+                        left.unshift(cur);
+                    }
+                }else{
+                    left.splice(j+1,0,cur);
+                    break;
+                }
+            }
+        }
+        return left;
+    }
+    console.log(insertSort(ary));
+</script>
+</body>
+</html>

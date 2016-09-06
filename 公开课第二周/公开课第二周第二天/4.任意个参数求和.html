@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*function add(a,b){
+       // console.log(arguments.callee)
+       // console.log(arguments.length)
+        console.log(arguments[0])
+        alert(a+b);
+    }
+    //arguments.callee;*/
+    function add(){
+        //通过arguments 遍历每个实参
+        var total=0;
+        for(var i=0; i<arguments.length; i++){
+            var cur=arguments[i];
+            if(!isNaN(cur)){ //isNaN的实现原理，是通过Number()来进行判断的，所以'5'也能进来；
+                total+=Number(cur);
+            }
+        }
+        return total; //别人想拿的是求和后的结果，所以，必须有返回值；
+    }
+    console.log(add(1,2,3,4,'5','5px'))
+</script>
+</body>
+</html>

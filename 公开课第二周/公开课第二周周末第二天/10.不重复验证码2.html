@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        p{
+            width: 100px;
+            height: 40px;
+            border: 1px solid lightgreen;
+            box-shadow: 0 0 10px #ccc;
+            text-align: center;
+            line-height: 40px;
+            font-size: 30px;
+            margin: 50px auto;
+            background:darkmagenta;
+            color: white;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            float: left;
+            margin:5px;
+        }
+    </style>
+</head>
+<body>
+<p>xx00</p>
+<p>xx00</p>
+<p>xx00</p>
+<p>xx00</p>
+<p>xx00</p>
+<p>xx00</p>
+<p>xx00</p>
+<p>xx00</p>
+<p>xx00</p>
+<p>xx00</p>
+<script>
+    //需求：找四个不重复的随机验证码；
+    //封装：对于功能相同的代码，只需要写一次，并且封装起来，以后再使用的时候，不需要重新在写，只需要调用即可；
+    var aP=document.getElementsByTagName('p');
+    var strCode='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    for(var i=0; i<aP.length; i++){
+        aP[i].onclick=function(){
+            //当一个元素身上的事件被触发的时候，函数中的this指向当前这个元素；
+            getCode(this);
+        }
+    }
+    function getCode(curEle){
+        var str='';
+        /*
+         * 1.当字符串的长度小于4的时候；开启一个while循环
+         * 2.循环中想做的是：每次根据取到的随机数对应的值，在字符串中是否存在，如果不存在，放入字符串
+         * 3.往字符串中方法，是字符串拼接；
+         * */
+        while(str.length<4){
+            var rnd=Math.round(Math.random()*61);//拿到的是随机数--把随机数作为索引
+            var strRnd=strCode.charAt(rnd);//找到随机数对应的内容；
+            //看str中是否已经有strRnd；只有没有的时候，才往字符串中拼接
+            if(str.indexOf(strRnd)===-1){//说明没找到
+                str+=strRnd;
+            }
+
+        }
+        curEle.innerHTML=str;
+    }
+    //如果想实现一堆元素，都是一样的效果，我们可以先写好一个，然后把它包裹在函数中封装起来；最后根据情况调用；
+
+</script>
+</body>
+</html>

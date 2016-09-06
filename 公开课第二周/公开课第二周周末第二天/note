@@ -1,0 +1,118 @@
+1.关于&& || 在if语句中的用法
+ 条件为真 &&  才会走后面的语句；
+ if() 语句1；
+
+ else{} //当条件不成立的时候，才会走else语句
+ 条件为假 || 才会走后面的语句
+2.关于参数的三种判断
+参数=参数==null？没传参数情况下要走的语句 ：传了参数情况下要走的语句；
+参数=参数==undefined?没传参数情况下要走的语句 ：传了参数情况下要走的语句；
+参数=typeof 参数 == 'undefined'?没传参数情况下要走的语句 ：传了参数情况下要走的语句；
+3.arguments有两个常用的属性：
+arguments.length  实参的长度
+arguments.callee  当前函数本身
+4.快速排序的思路
+ 1)先取中间位置
+ 2）找中间位置对应的值
+ 3）用数组每一项跟中间值进行比较，比他大的放right[]; 比他小放left[];
+ 4)返回quickSort(left).concat([numValue],quickSort(right))
+ 5)停止拆分的条件
+5.插入排序的思路
+ 1）先给left数组一个值
+ 2）拿数组中每项跟left数组从后往前的比较，比他大的，放在他的下一张的前面，比他小的，继续往前比较，如果比到开头还是比他小，插入到left数组的最开始；
+ 注意点：如果已经放在他的下一张的前面； 停止left的比较；break；
+6.删除数组最后一项
+pop() ary.length--; ary.length-=1; ary.length=ary.length-1; aplice(ary.length-1,1);
+7.给数组末尾添加一项？
+push() splice(ary.length,0,'xxx'); ary[ary.length]='xxx';
+8.数组克隆？
+splice(0) slice(0)/slice(); concat();
+9.数据类型检测
+ 1)typeof
+ 2)constructor
+ 3)instanceOf
+ 4)Object.prototype.toString.call();
+10.运算符的优先级：算数运算符>比较运算符>逻辑运算符>赋值运算符
+11.隐式数据类型的转换:== - * / %
+12.引用数据类型创建几步骤
+三步骤{key:value}
+1）开辟一个空间地址
+2）把对象的 属性名和属性值 放在这个空间中
+3）把空间地址赋值给变量名；
+
+函数创建三步骤：
+1）开辟一个空间地址
+2）把函数体中的所有JS代码，作为字符串存在空间中
+3）把空间地址赋值给函数名
+13.JS中的数据类型包含哪些
+基本数据类型：字符串string 数字number 布尔boolean null  undefined
+引用数据类型：对象数据类型(new Date, new RegExp,object,[]..) 和 函数数据类型(function)
+14.JS的输出方式：
+1）alert：在浏览器中弹出需要的内容；
+2）confirm()
+3）console.log()：在控制台输出；
+4）console.dir():可以详细的打印出对象上对应的属性和方法；
+5)console.table():把对象以表格的形式打印出来；
+6)document.write:可以把要输出的内容直接打印在页面上：
+7)innerHTML
+15.字符串常用方法
+1）通过下标找字符
+  charAt(索引) 通过下标找到对应的字符
+  charCodeAt(索引) 通过下标找到对应字符的Unicode编码制
+2）通过字符找下标
+  indexOf('字符串') 从前往后找，找到返回对应内容的索引，找不到，返回-1；
+  lastIndexOf('字符串') 从后往前找，找到返回对应内容的索引，找不到，返回-1；
+3)字符串转大小写
+  toUpperCase() 转大写
+  toLowerCase() 转小写
+4）字符串截取
+  substr(n,m) 从索引n开始，截取m个；
+  substring(n,m) 从索引n开始，找到索引m：包前不包后
+  slice(n,m) 功能跟substring一样，但是可以取负值；
+5)跟正则配合的方式
+  split(切割形式) //把字符串切成数组
+  search(字符串)  如果放字符串作为参数，功能跟indexOf一样，但是它的参数可以放正则
+  match() 用来捕获的；没捕获到null;
+  replace('',替换成的内容) 字符串替换的；
+16.Math常用方法：
+1）Math.round() 四舍五入
+2）Math.floor() 向下取整
+3）Math.ceil() 向上取整
+4）Math.abs() 绝对值
+5)Math.sqrt() 开平方
+6)Math.pow() 幂
+7）Math.max() 求最大值
+8)Math.min() 求最小值
+9）Math.random() 从0-1之间的随机小数； 包含0 但不包含1；
+//求从100-200之间的随机整数
+ Math.round(Math.random()*(200-100)+100)；
+ 从n-m之间的随机整数
+ 随机整数公式：Math.round(Math.random()*(m-n)+n)
+//0~100+100
+17.定时器：
+setTimeout()  1000毫秒后只调用一次。然后就不会调用了；--clearTimeout(定时器名字)
+setInterval()  每隔1000毫秒调用1次；调用n多次；--clearInterval(定时器名字)
+//上午的难点：1）上一个哥哥元素的封装--while  2）不重复随机验证码 --while
+18.oDate.getTime():格林尼治时间； 现在距离1970年1月1日00:00:00的毫秒数
+19.倒计时思路
+1）求现在的日期对象
+2）求未来的日期对象
+3）求现在距离未来的秒数
+4）秒转换
+5）字符串拼接并且赋值；
+...................................
+anki
+作业：
+1.封装上一个哥哥元素；
+2.不重复的随机验证码
+3.倒计时
+4.点击自增；
+5.自己查看前两周的笔记，所有的东西必须掌握；
+
+
+
+
+
+
+
+

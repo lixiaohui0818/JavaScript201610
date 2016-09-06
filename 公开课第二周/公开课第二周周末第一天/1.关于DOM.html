@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这是一个DOM文档</title>
+    <script src=""></script>
+    <link rel="stylesheet" href=""/>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<p>p2</p>
+
+<form action="" id="form1">
+    <p id="p1" class="pp">p1</p>
+    <input type="radio" name="sex" value="gril"/>女生
+    <input type="radio" name="sex" value="body"/>男生
+</form>
+<script>
+    var oForm=document.getElementById('form1');
+    var aBtn=document.getElementsByName('sex');
+    var oP1=oForm.querySelectorAll('#p1');//标签名 class名 id名
+    console.log(oP1);
+</script>
+</body>
+</html>

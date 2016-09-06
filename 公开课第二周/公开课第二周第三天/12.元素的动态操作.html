@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        li{
+            height: 40px;
+            background: red;
+            margin:10px;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li id="li">1<span>12343</span></li>
+
+</ul>
+<script>
+    var oUl=document.getElementsByTagName('ul')[0];
+    var li=document.getElementById('li');
+    var oLi=document.createElement('li'); //现在只是创建，我们还需要插入；
+    oLi.innerHTML=2;
+    //oUl.appendChild(oLi); //把新元素插入到父容器的末尾；
+    //oUl.insertBefore(oLi,li);
+    //oUl.removeChild(oLi);
+    //oUl.replaceChild(oLi,li);
+    var newLi=li.cloneNode(); //克隆；
+    oUl.appendChild(newLi);
+    newLi.removeAttribute('id');
+    newLi.setAttribute('index',0)
+    alert(newLi.getAttribute('index'))
+</script>
+</body>
+</html>

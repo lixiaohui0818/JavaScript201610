@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    //需求：求0-61之间的4个不重复的随机整数？
+    /*思路：
+    * 1.建立一个数组，用数组保存拿到的每个随机整数
+    * 2.用for循环去取随机整数，取到一个，往数组中放一个；
+    * 3.放之前应该检查数组中是否有你，如果有了，这次机会不算；否则，才往数组中放；
+    * */
+    /*var ary=[];
+    for(var i=0; i<4; i++){
+        var rnd=Math.round(Math.random()*61);
+        if(ary.indexOf(rnd)!==-1){ //说明重复了
+            i--; //这次浪费的机会不算；
+        }else{ //代表数组中没有重复的；
+            ary.push(rnd);
+        }
+    }
+    document.write(ary);*/
+    //中午时候，大家尝试用while来实现以上功能；
+    /*思路：
+    * 1.数组的长度做为判断条件： ary.length<4
+    * 2.每次while循环，都需要获取随机整数；
+    * 3.数组中没有他的时候，才往数组中放；
+    * */
+    var ary=[];
+    while(ary.length<4){
+        //必须得给数组添加；
+        var rnd=Math.round(Math.random()*61);
+        //数组中没有这个数的时候，才给数组中添加
+        if(ary.indexOf(rnd)===-1){ //说明数组中不存在
+            ary.push(rnd);
+        }
+    }
+</script>
+</body>
+</html>

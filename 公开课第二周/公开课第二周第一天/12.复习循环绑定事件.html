@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="button" value="按钮1"/>
+<input type="button" value="按钮2"/>
+<input type="button" value="按钮3"/>
+<input type="button" value="按钮4"/>
+<script>
+    //需求：点击每个按钮的时候，弹出对应的索引
+    var aInput=document.getElementsByTagName('input');
+    /*for(var i=0; i<aInput.length; i++){ //同步
+        //我们可以给每个按钮添加自定义属性，用来保存正确的i值；
+        aInput[i].index=i;
+        //事件外面的i值，是正确定，我们可以把正确的i值，保存到自定义属性上
+        aInput[i].onclick=function(){ //事件都是异步，里面的i值都会出错；因为所有添加事件的函数中，等事件发生的时候，外面的for循环早已经结束，我们只能拿到最大值；而且这个最大值一定已经不满足循环条件
+            alert(this.index);//当发生点击事件的时候，我们可以弹出这个按钮上的index属性对应的值；
+
+        }
+    }*/
+    /*for(var i=0; i<aInput.length; i++){
+        aInput[i].index=i;
+        aInput[i].onclick=function(){
+            alert('我是第'+(this.index+1)+'个按钮');
+        }
+    }*/
+    /*for(var i=0; i<aInput.length; i++){
+        (function(index){//index->形参
+            aInput[i].onclick=function(){
+                alert(index);
+            }
+        })(i);//i->实参
+    }*/
+    for(var i=0; i<aInput.length; i++){
+        (function(index){//index 是形参
+            aInput[index].onclick=function(){
+                alert(index);
+            }
+        })(i); //i 是实参
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+1.什么时候会出现NaN?
+1)转换失败的时候；
+2）无效的数学运算；
+2.i++ :先运算，再++；等++后已经跟运算无关，只是自身的累加；
+++i:先++，再运算；
+3.对象有个特性：不重名的特性；
+如果对象中已经有这个值，在添加这个属性，就相当于修改；
+4.当定义多个变量的时候，可以只写一个var;其他的变量中间用,号分隔；
+5.复习封装任意个参数求和；
+、、、、、、、、、、、、、、、、、、、、、、、、、、、、
+1.复习数组常用的方法：
+1）增加，删除和替换
+    push()
+    unshift()
+    pop();
+    shift()
+    splice()
+        splice(n,m) 删除：从索引n开始，删除m个
+        splice(n,0,m) 插入：从索引n开始，删除0个，把m的新内容，添加到索引n的前面；
+        splice(n,m,x) 替换：从索引n开始，删除m个，替换为x的新内容；
+2）查找和克隆
+    slice(n,m) 从索引n找到索引m，包前不包后
+    //需求：找到[n项，m项]   slice(n-1,m)
+    ary1.concat(ary2,ary3.....) 数组拼接
+3）排序和排列
+    sort(function(a,b){return a-b}) ;从小到大；
+    //如何实现从大到小； sort(function(a,b){return b-a})
+    reverse()
+4）数组转字符串
+    toString(); //拼接成以逗号分隔的字符串
+    join('拼接形式')
+    eval(ary.join('+'))
+    eval:把字符串做为JS代码来执行；
+5）常用但不兼容的方法
+    indexOf() 查找：找到返回内容索引； 找不到：返回-1；
+    forEach(function(item,index,input){
+        item：数组中的每项内容
+        index:索引
+        input：原始数组
+    });
+    map:和forEach功能一样，区别就是map有返回值；
+2.数组总结：
+删除数组最后一项： pop() splice(ary.length-1,1) ary.length-- ary.length-=1; ary.length=ary.length-1;
+给数组末尾添加一项：push() splice(ary.length,0,'') ary[ary.length]='';
+克隆：slice(0)/slice(); splice(0); ary.concat();
+3.arguments:
+arguments.callee:代表函数本身；
+arguments.length:代表实参的长度
+能影响arguments的都是实参；所以，我们可以通过arguments去遍历传进来的每个实参；
+4.字符串常用的方法：
+1）通过下标找字符 2
+    charAt(索引) 通过下标找对应字符
+    charCodeAt(索引) 通过下标找对应字符的 Unicode 编码
+2）通过字符找下标 2
+    indexOf():从前往后找； 找到的时候，返回对应的索引，找不到，返回-1；
+    lastIndexOf()：从后往前找； 找到的时候，返回对应的索引，找不到，返回-1；
+3）字符串的截取 3
+    substr(n,m) 从索引n开始，截取m个；
+    substring(n,m) 从索引年开始，截取到索引m，包前不包后；
+    slice(n,m) slice功能跟substring一样，但是slice可以取负值；
+4）字符串的转大小写 2
+    toLowerCase() 字符串转小写
+    toUpperCase() 字符串转大写
+5）可以跟正则配合的字符串方法： 4
+    split() 字符串转数组
+    replace() 字符串替换
+    match() 捕获：找到要找的内容，然后把它拎出来；
+    search() 查找：找到的时候，返回对应内容的索引，找不到，返回-1；
+5.Math的常用方法
+Math.round() 四舍五入
+Math.floor() 向下取整
+Math.ceil() 向上取整
+Math.abs() 取绝对值
+Math.sqrt() 开平方
+Math.pow() 幂次方
+Math.max() 取最大值
+Math.min() 取最小值
+Math.random(); 取到从0-1之间的随机小数，它包前不包后；所以拿不到最大值1；
+//需求：拿到100-300之间的随机数；
+Math.random()*(300-100)+100 //从0-100之间的随机数，而且不包含100；
+
+//需求2：拿到100-200之间的随机整数，包含200；
+Math.round(Math.random()*(200-100)+100);
+
+求随机数公式： 从n-m之间的随机整数
+Math.round(Math.random()*(m-n)+n);
+
+6.定时器有两个，setInterval setTimeout ; 他们都属于window下全局方法；
+setInterval(callback,毫秒数):每隔一段时间执行一次;关闭定时器用clearInterval
+setTimeout(callback,毫秒数)：只能执行一次； 关闭setTimeout用clearTimeout;
+7.把数字变成字符串，直接加空字符即可 '';
+8.oDate.getTime() 现在距离1970年1月1日 00:00:00 的毫秒数； 即 格林尼治时间；
+9.倒计时的思路：
+1）求出未来距离现在的毫秒数，然后把毫秒数转成秒数，并且取整；
+2）秒转换：我们需要计算一天有多少秒：24*60*60=86400
+3)字符串拼接
+4）函数先调用一次， 定时器调用
+...........................
+作业：
+1）任意个参数求和：1）有效数字的判断 2）预防字符串拼接 3）返回值
+2）练习字符串方法 1.首字母大写 2种 2.日期格式化
+3）0-61之间不重复的随机验证码--思考：有没有更简单的方式实现呢？
+4）时间
+5）倒计时
+
+

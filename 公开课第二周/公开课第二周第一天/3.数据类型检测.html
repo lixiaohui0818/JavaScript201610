@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*
+    * 对象：万物皆对象
+    * 包含这些类：Object Array RegExp Date....
+    *
+    *
+    * */
+    var ary=[]; //实例
+    //alert(typeof  ary) ;//所有typeof打印出来的东西，都是被字符串包裹的数据类型； “object”
+    //alert(ary.constructor) ;//打印出当前实例所属的类 Array;
+    //alert(ary instanceof Array) ;//检测当前 对象 是否属于某个 类
+    /*console.log(Object.prototype.toString.call(ary)); //'[object Array]'
+    var str='23iu4o23';
+    alert(str) //弹出变量所保存的内容；
+    alert('456') //直接弹出字符串*/
+    /*if('2px'+3){ //'2px3'
+        alert('true')
+    }else{
+        alert('false');
+    }*/
+
+    //alert(undefined+30)
+    //alert(null+30)
+    alert([]+50)
+    if(3){ //if中有单独的值
+        alert('true')
+    }
+    if(3=='3'){ //if中有表达式
+        alert('true')
+    }
+
+</script>
+</body>
+</html>

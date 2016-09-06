@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div><p>0</p>
+
+    <p>1</p>
+
+    <p id="p2">2</p>
+
+    <p>3</p>
+</div>
+<script>
+    //功能：获取 当前元素 的上一个哥哥元素节点
+    var aP=document.getElementsByTagName('p');
+    function prev(curEle){
+        //1.浏览器兼容处理：标准浏览器直接使用previousElementSibling
+        if(curEle.previousElementSibling){
+            return curEle.previousElementSibling;
+        }
+        //2.对IE6-8进行处理
+        var pre=curEle.previousSibling; //拿到的是上一个哥哥节点
+        while(pre && pre.nodeType !== 1){
+            pre=pre.previousSibling; //依据哥哥节点继续往上找他自己的哥哥节点
+        }
+        return pre;
+    }
+    console.log(prev(aP[3]).innerHTML)
+</script>
+</body>
+</html>

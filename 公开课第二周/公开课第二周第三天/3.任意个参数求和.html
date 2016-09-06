@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //当我们不确定要接受多少实参的时候，就不用写形参；用过函数自带的参数机制arguments，来接受实参
+    //想知道别人给我们传了多少参数，通过arguments来查看；
+    //如果通过arguments看到别人给传了3个参数，我们就可以设置3个形参来分别接受实参；
+    function add(){
+        var total=0;
+        for(var i=0;i<arguments.length; i++){
+            var cur=Number(arguments[i]);
+            if(!isNaN(cur)){//有效数字的过滤
+                total+=cur;//避免字符串拼接；
+            }
+        }
+        return total; //返回值不能忘；
+    }
+    add(1,2,21,'3')
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    var n=0;
+    function fn(){
+        n++;
+        alert(n)
+        if(n>=5){
+            clearTimeout(timer); //关闭定时器
+            return;//阻断程序执行的作用
+        }
+        var timer=setTimeout(arguments.callee,1000);//开启定时器
+    }
+    fn()
+</script>
+</body>
+</html>

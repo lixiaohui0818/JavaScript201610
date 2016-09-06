@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //定时器有两个，setInterval setTimeout ; 他们都属于window下全局方法；
+    //setInterval(callback,毫秒数):每隔一段时间执行一次;关闭定时器用clearInterval
+    //setTimeout(callback,毫秒数)：只能执行一次； 关闭setTimeout用clearTimeout;
+    var n=0;
+    /*var timer=window.setInterval(function(){
+        if(n==5){
+            clearInterval(timer)
+        }
+        alert(n++)
+    },0)*/
+    var timer2=setTimeout(function(){
+        alert(++n)
+    },1000)
+   // alert(123)
+</script>
+</body>
+</html>

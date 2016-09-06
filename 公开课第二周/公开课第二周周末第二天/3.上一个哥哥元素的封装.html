@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div><p>0</p>
+
+    <p>1</p>
+
+    <p id="p2">2</p>
+
+    <p>3</p>
+</div>
+<script>
+    //for循环和while的循环区别：当循环次数不确定的时候，用while循环
+    var aP=document.getElementsByTagName('p');
+    //previousElementSibling 在IE6-8下不兼容
+    //console.log(aP[2].previousElementSibling.innerHTML)
+    //console.log(aP[2].previousElementSibling)
+    //当对象支持 previousElementSibling这个属性，我们可以直接使用它获取上一个哥哥元素；反之，自己做兼容处理
+    //功能：获取当前元素的上一个哥哥元素
+    function prev(curEle){
+        //1.浏览器的兼容处理：当对象身上有这个属性，直接使用；
+        if(curEle.previousElementSibling){
+            return curEle.previousElementSibling;
+        }
+        //下面这块做的是IE6-8的兼容处理；
+        //1.可以拿到当前元素上一个哥哥节点；
+        var pre=curEle.previousSibling;//当pre=元素节点||不是节点就不再进循环
+        //返回值：获取到的上一个哥哥元素
+        //2.判断条件：节点存在，并且不是元素节点，才依据它一层层的往上找哥哥元素
+        while(pre && pre.nodeType !==1){
+            pre=pre.previousSibling;
+        }
+        return pre;
+    }
+    var preEle=prev(aP[0]);
+    console.log(preEle)
+    //preEle.style.background='red';
+</script>
+</body>
+</html>

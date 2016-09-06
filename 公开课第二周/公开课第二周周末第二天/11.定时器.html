@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*var timer=setTimeout(function(){//
+        alert(1);
+    },1000)*/
+    var n=0;
+    var timer=setInterval(function(){
+        if(n>=5){
+            clearInterval(timer)
+        }
+        alert(n++)
+    },1000)
+</script>
+</body>
+</html>

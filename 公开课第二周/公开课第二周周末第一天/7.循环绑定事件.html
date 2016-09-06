@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="button" value="按钮1"/>
+<input type="button" value="按钮2"/>
+<input type="button" value="按钮3"/>
+<input type="button" value="按钮4"/>
+<script>
+    //需求：点击每个按钮，弹出对应的索引
+    //需求：点击每个按钮，弹出我是第几个按钮
+
+    var aBtn=document.getElementsByTagName('input');
+    /*for(var i=0; i<aBtn.length; i++){
+        //alert(i) //此时弹出的i是正确的i值；
+        //把正确的i值，保存在元素的自定义属性上；
+        aBtn[i].zIndex=i;
+        aBtn[i].onclick=function(){
+            //点击事件里面的i值，永远都是错的；等我们有点击事件触发的时候，循环早已经结束，i值已经是最大的了；
+            alert('我是第'+(this.zIndex+1)+'个按钮') //当行为被触发的时候，函数中的this指向当前的这个元素；
+        }
+
+    }*/
+    for(var i=0; i<aBtn.length; i++){
+        //当我发生点击事件之前的i值都是正确；我们把正确的i值保存私有作用域里；
+        (function(index){//index是形参-》用函数调用时形成的私有作用域保护正确的i值；
+            aBtn[index].onclick=function(){
+              alert('我是第'+(index+1)+'个按钮') //预防字符串拼接，可以对index+1用小括号提高优先级；
+            }
+        })(i); //此时i值就是实参；
+    }
+</script>
+</body>
+</html>

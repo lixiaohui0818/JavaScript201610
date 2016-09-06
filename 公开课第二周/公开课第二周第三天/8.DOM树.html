@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<p class="p1" id="p1"></p>
+<input type="text" name="txt"/>
+<script>
+    //1.id获取元素--完全兼容
+    //var oP=document.getElementById('p1'); //
+    //2.class获取元素--在IE6-8下不兼容
+    //var oP=document.getElementsByClassName('p1')[0];
+    //3.标签名--完全兼容
+    //var oP=document.getElementsByTagName('p')[0];
+    //4.name获取元素--主要用于表单元素；
+    //var oInput=document.getElementsByName('txt')[0];
+    //5.可视区的宽和高
+    /*var w=document.documentElement.clientWidth||document.body.clientWidth;
+    var h=document.documentElement.clientHeight||document.body.clientHeight;*/
+    //6.querySelector--只能获取一个元素
+   // var oP=document.querySelector('.p1');
+   // var oP=document.querySelector('#p1')
+    //var oP=document.querySelector('p')
+    //7.querySelectorAll
+    //var oP=document.querySelectorAll('.p1')[0];
+    //var oP=document.querySelectorAll('p')[0];
+    var oP=document.querySelectorAll('#p1')[0];
+    console.log(oP);
+</script>
+</body>
+</html>

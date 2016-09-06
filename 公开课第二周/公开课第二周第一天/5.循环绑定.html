@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="button" value="按钮1"/>
+<input type="button" value="按钮2"/>
+<input type="button" value="按钮3"/>
+<input type="button" value="按钮4"/>
+</body>
+<script>
+    //浏览器在加载页面的时候，只会检查一次，元素身上时候有自定义属性，如果有，就干掉；等页面加载完成，我们可以在JS里给元素添加自定义属性；这样，浏览器就不会干掉他了；
+    var aBtn=document.getElementsByTagName('input');
+    /*aBtn[0].index=0;
+    aBtn[1].index=1;
+    aBtn[2].index=2;
+    aBtn[3].index=3;*/
+    //思路1：自定义属性
+    /*for(var i=0; i<aBtn.length; i++){
+        //alert(i); //这里i是正确的i值；
+        aBtn[i].index=i; //通过JS和for循环，给每个元素添加自定义属性，保存正确的i值；
+        aBtn[i].onclick=function(){
+            alert('第'+(this.index+1)+'个按钮'); //this：指向当前触发事件的这个元素；
+           // alert(aBtn[i].value)//这里的i永远是已经for循环结束后的i值；
+        }
+    }*/
+    //思路2：
+    /*for(var i=0; i<aBtn.length; i++){
+       // alert(i); //i值都是正确的
+       /!* (function (index){ //index是形参
+            aBtn[i].onclick=function(){ //只有发生点击事件或其他行为触发的时候，i值才会发生变化；
+                alert(index)
+            }
+        })(i) //把正确的i值保存到函数中； i是实参*!/
+        var a=345;
+        ;~function(index){
+            aBtn[index].onclick=function(){
+                alert(index);
+            }
+        }(i);
+    }
+*/
+   // console.log(i) //点击事件属于异步：
+</script>
+</html>

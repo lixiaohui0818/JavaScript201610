@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .box{
+            width: 200px;
+            margin:50px auto;
+        }
+        .box input{
+            width: 100%;
+            display: block;
+            height: 40px;
+        }
+        .box div{
+            width: 100%;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <input type="button" value="点击自增"/>
+    <div id="div1">0</div>
+</div>
+<script>
+    //需求：点击按钮的时候，每隔500毫秒自增一次，再点击按钮，停止自增，再点击按钮继续自增，再点。。。。。
+    var oBtn=document.getElementsByTagName('input')[0];
+    var oDiv=document.getElementById('div1');
+    var n=0;
+    var timer=null;
+    var bOk=true;
+    //1.点击以后，开始每隔500毫秒自增；
+    //2.点击一次自增，再点击一次停止；
+    /*
+    * 1.给oBtn添加点击事件
+    * 2.用setTimeout实现自增；
+    * */
+    oBtn.onclick=function(){
+        //开关思想
+        if(bOk){//当bOk为真的时候，开始自增；
+            fn(); //函数被调用的时候，看前面是否有点，点前面是谁，this就是谁；
+        }else{
+            clearTimeout(timer);
+        }
+        bOk=!bOk;
+    };
+    function fn(){
+        clearTimeout(timer);
+        oDiv.innerHTML=++n;//++n:先++再运算；
+        timer=setTimeout(fn,500);
+    }
+</script>
+</body>
+</html>

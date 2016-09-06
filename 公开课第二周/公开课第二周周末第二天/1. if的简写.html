@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+   /* if(true){
+        alert(1);
+    }else{
+        alert(2)
+    }*/
+    //true && alert(1); //对if语句的简写；前面的语句必须为真，才会走后面语句
+    //false || alert(2);//对else语句的简写；前面语句为假才会走后面的语句
+   function fn(a){//关于私有变量有两种：1.函数中带var的； 2.形参
+       a=a||123; //你如果传了a，按你传的来，如果你没传，默认走123;
+       alert(a);
+   }
+   function fn1(a){ //a = undefined   undefined==null;
+       /*if(a==null){
+           alert('没传参数')
+       }else{
+           alert('传了参数')
+       }*/
+       /*if(a==undefined){
+           alert('没传')
+       }*/
+       /*if(typeof a=='undefined'){//凡是用typeof检测出来的，都是字符串中包裹的数据类型：'undefined' 'string'
+           alert('没传')
+       }*/
+       //if(typeof a==undefined){//它是错误的写法，以上三种都正确；
+           alert('go')
+       //}
+   }
+   //fn(1);
+    //fn1()
+
+
+
+
+</script>
+</body>
+</html>

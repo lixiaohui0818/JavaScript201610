@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //需求：任意个参数求和
+    function add(){
+        var total=0;
+        for(var i=0; i<arguments.length; i++){
+            //1.进行有效数字的过滤
+            if(!isNaN(arguments[i])){
+                total+=Number(arguments[i]);
+            }
+        }
+        return total; //必须写返回值；
+    }
+    alert(add(1,3,'3','4px'))
+
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*var timer=setInterval(function(){
+        alert(1)
+    },50)*/
+    /*var timer=setTimeout(function(){
+        alert(1)
+    },50)*/
+
+    var n=0;
+    function fn(){
+        n++;
+        console.log(n)
+        if(n>=5){ //当n》=5的时候，停止定时器，并且阻断程序的执行
+            clearTimeout(timer);
+            return;//如果不写return，定时器又被开启了，永远停不下来；
+        }
+        var timer=setTimeout(fn,1000)
+    }
+    fn();
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+1.比较难的
+
+1）倒计时
+2）数组去重
+3）错的比较多：
+    1.任意个参数求和；--arguments;
+    2.隔行变色
+    练习：for 和 if。。else
+    while..switch判断
+4)不重复的随机验证码
+5）快速排序和插入排序
+6）循环绑定//--周六讲
+................................................................
+1.元素获取方式
+id
+tagName
+name
+className--不兼容
+querySelector--不兼容，主要用于开发移动端
+querySelectorAll--不兼容，主要用于开发移动端
+document.documentElement.clientWidth||document.body.clientWidth浏览器的宽
+document.documentElement.clientHeight||document.body.clientHeight浏览器的高
+2.节点类型
+            nodeType       nodeName       nodeValue
+元素节点       1             大写的标签名      null
+文本节点       3             #text          文本内容
+注释节点       8             #comment       注释内容
+document节点  9              #document       null
+3.节点关系
+parentNode  父节点 --兼容
+childNodes  子节点  --兼容：问题他能拿到所有的子节点：元素节点，注释节点。。。
+children  子元素-但不兼容
+previousSibling 上一个哥哥节点（哥哥节点：元素节点，注释节点，document节点，文本节点）
+nextSibling 下一个弟弟节点
+firstChild 第一个子节点
+lastChild  最后一个子节点
+4.元素的动态操作：
+1）元素的动态创建
+    动态创建：document.createElement(标签名)；
+    克隆：obj.cloneNode(布尔值) true：深度克隆 false：只克隆表面
+2）元素的动态插入
+    父级.appendChild(要插入的元素); //把新元素插入到父容器的末尾；
+    父级.insertBefore(newEle,refEle);
+3）元素的删除和替换
+    父级.removeChild(要删除的元素)  //在父容器下删除某个元素
+    父级.replaceChild(newEle,oldEle);//在父容器下用新元素替换旧元素；
+5.attribute系列：
+    获取属性 obj.getAttribute('属性名')
+    设置属性 obj.setAttribute('属性名','属性值')
+    删除元素的属性，用obj.removeAttribute('属性名');
+
+
+
+
+

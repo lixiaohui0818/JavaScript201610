@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            font-size: 50px;
+        }
+        p{
+            display: inline-block;
+            color: red;
+            font-weight: bold;
+            font-size: 80px;
+        }
+    </style>
+</head>
+<body>
+<div>北京时间，下午<p>00:00:00</p></div>
+<script>
+    var oP=document.getElementsByTagName('p')[0];
+    //toDou功能：让一位数字，都变成两位；
+    function toDou(n){ //获取两位数
+        return n>=0 && n<10? '0'+n:''+n;
+    }
+    function getTime(){
+        //1.获取日期对象；
+        var oDate=new Date();
+        var h=oDate.getHours();
+        var m=oDate.getMinutes();
+        var s=oDate.getSeconds();
+        var str=toDou(h)+':'+toDou(m)+':'+toDou(s); //字符串拼接日期
+        oP.innerHTML=str;
+    }
+    getTime(); //必须先调用一次，否则，页面会出现一秒钟的00:00:00；
+    var timer=setInterval(getTime,1000);//用定时器每隔1000毫秒调用一次getTime；
+</script>
+</body>
+</html>

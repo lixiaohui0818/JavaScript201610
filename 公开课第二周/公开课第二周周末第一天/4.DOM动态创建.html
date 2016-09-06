@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .div{
+            width: 200px;
+            height: 200px;
+            background: red;
+            margin:10px;
+        }
+    </style>
+</head>
+<body>
+<p>我是p1</p>
+
+</body>
+<script>
+    //需求：在页面中添加一个红色的div,添加到p元素的下面；
+    //1.用JS动态创建一个div
+    var oDiv=document.createElement('div'); //<div></div>
+    var oP=document.getElementsByTagName('p')[0];
+    oDiv.className='div';
+    oDiv.innerHTML='<span>我是span标签</span>'
+    oDiv.id='div1';
+    var oDiv2=oDiv.cloneNode(true);
+    //添加到p元素的下面；也就是父容器的末尾；
+    //document.body.appendChild(oDiv)
+    //把div添加到p元素的前面
+    //document.body.insertBefore(oDiv,oP);
+    //document.body.removeChild(oDiv);
+    document.body.replaceChild(oDiv,oP);
+    document.body.appendChild(oDiv2);
+    oDiv2.id=null;
+    //oDiv2.removeAttribute('id');
+</script>
+</html>

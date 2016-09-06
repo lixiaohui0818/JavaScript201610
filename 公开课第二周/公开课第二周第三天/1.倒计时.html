@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            font-size: 40px;
+        }
+        div span{
+            color: red;
+            font-size: 80px;
+        }
+    </style>
+</head>
+<body>
+<div>距离放假还有<span>00天 00:00:00</span></div>
+<script>
+    /*思路：
+    * 1.未来的时间-现在的时间=求得是毫秒数-》转化成秒数
+    * 2.秒转换 -》天，时，分，秒
+    * 3.拼接字符串，改变页面中的内容；--因为要在页面上展示；
+    * 4.定时器--》注意：如果只用定时器调用，会出现1秒钟页面空白-解决措施：先提前调用一次方法
+    * */
+    var oSpan=document.getElementsByTagName('span')[0];
+    function toDou(n){//字符串是为了保证输出结果的数据类型一致；
+        return n>=0 && n<10? '0'+n:''+n;
+    }
+    function cuntDown(){
+        //1.未来的时间-现在的时间=求得是毫秒数-》转化成秒数
+        var s=Math.floor((new Date('2016/9/1 18:00:00')-new Date())/1000);
+        //2.秒转换 -》天，时，分，秒 24*60*60=86400;
+        var d=Math.floor(s/86400); //整数部分是天
+        s%=86400; //剩下的秒数
+        var h=Math.floor(s/3600);
+        s%=3600;
+        var m=Math.floor(s/60);
+        s%=60;
+        var str=toDou(d)+'天 '+toDou(h)+':'+toDou(m)+':'+toDou(s);
+        oSpan.innerHTML=str;
+    }
+    cuntDown();
+    var timer=setInterval(cuntDown,1000);
+
+</script>
+</body>
+</html>

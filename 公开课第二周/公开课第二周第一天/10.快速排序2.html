@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ary=[34,21,23,6,4];
+
+    function quickSort(ary){
+        //5.停止拆分的条件
+        if(ary.length<=1){
+            return ary;
+        }
+        //1.取中间位置
+        var num=Math.floor(ary.length/2);
+        //2.取中间位置对应的值
+        var numValue=ary.splice(num,1)[0];
+        //3.比对：拿数组中的每一项，跟numValue进行比对，比他小的放left数组，比他大的，放right数组
+        var left=[];
+        var right=[];
+        for(var i=0; i<ary.length; i++){
+            var cur=ary[i];
+            if(cur<numValue){
+                left.push(cur);
+            }else{
+                right.push(cur);
+            }
+        }
+        return quickSort(left).concat([numValue],quickSort(right));
+    }
+    console.log(quickSort(ary))
+</script>
+</body>
+</html>

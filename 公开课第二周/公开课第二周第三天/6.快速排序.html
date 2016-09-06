@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ary=[23,14,2,6];
+    /*
+    * 1.找中间位置
+    * 2.通过位置找中间值
+    * 3.拿数组中的每项，跟中间值进行比较，大了放right[]; 小了放left[]
+    * 4.quickSort(left).concat([],quickSort(right))
+    * 5.停止拆分的条件
+    * */
+    function quickSort(ary){
+        if(ary.length<=1){
+            return ary;
+        }
+        var num=Math.floor(ary.length/2);
+        var numValue=ary.splice(num,1)[0];
+        var left=[];
+        var right=[];
+        for(var i=0; i<ary.length; i++){
+            var cur=ary[i];
+            if(cur<numValue){
+                left.push(cur);
+            }else{
+                right.push(cur);
+            }
+        }
+        return quickSort(left).concat([numValue],quickSort(right))
+    }
+    console.log(quickSort(ary));
+</script>
+</body>
+</html>

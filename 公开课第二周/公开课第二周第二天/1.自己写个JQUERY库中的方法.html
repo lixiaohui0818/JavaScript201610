@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script src="jquery-2.0.3.js"></script>
+<script>
+   /*var ary1=['a','b'];*/
+   var obj1={0:'a',1:'b'};
+   var ary2=['c','d'];//{0:a,1:b,2:c,3:d,length:4}
+   // console.log(ary1.concat(ary2));
+   //功能：把第二个为数组的参数，合并到第一个对象中去；
+   function merge(first,second){
+       //1.分别保存两个参数的length值；
+       var l=second.length; //第二个数组的长度
+       var i=first.length; //保存第一个对象的长度 2
+       var j=0;
+       if(typeof i=='number'){ //当对象有length属性，且length属性值为数字的情况下
+           //2.循环数组，把数组中的每一项都放到对象中去；
+           for(; j< l; j++){ //循环数组； first{2：'c',3:'d'}
+               first[i++]=second[j]; //
+           }
+       }else{//obj1中没有传length属性；
+          for(; j< l; j++){ //{0:'a',1:'b',NaN:'d'}
+               first[i++]=second[j]; //NaN
+           }
+
+       }
+       first.length=i;
+       return first;
+
+   }
+   //功能：把数组合并到对象中去；
+   console.log($.merge(obj1,ary2));
+   console.log(merge(obj1,ary2));
+</script>
+</body>
+</html>

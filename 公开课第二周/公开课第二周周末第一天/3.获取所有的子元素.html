@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        li{
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>0</li>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+<script>
+    var oUl=document.getElementsByTagName('ul')[0];
+    var aLi=getChildren(oUl);//oUl是实参
+    //需求：让Ul下所有的元素都变红
+    for(var i=0; i<aLi.length; i++){
+        aLi[i].style.background='red';
+    }
+    //需求：获取oUl下所有的子元素
+    /*思路：
+    * 1.先获取到oUl下所有的子节点--子节点是兼容的；
+    * 2.逐个判断每个节点的nodeType==1；如果等于，说明是我们要找的，把他放入数组；
+    * */
+    //获取 当前元素 下 所有的子元素 ； 参数：当前元素  返回值：所有的子元素 []
+    function getChildren(curEle){ //curEle
+        //1.获取当前元素下所有的子节点
+        var aChilds=curEle.childNodes;
+        var ary=[];
+        //2.逐个判断每个节点是否存在，并且 节点类型==1；符合条件放入数组
+        for(var i=0; i<aChilds.length; i++){
+            var cur=aChilds[i];
+            if( cur && cur.nodeType==1){
+                ary.push(cur);
+            }
+        }
+        //3.返回我们已经获取好的数组；
+        return ary;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+   // alert(Math.floor(2.9))
+   // alert(Math.ceil(2.1))
+    var ary=[34,21,23,6,4];
+   //1.功能：把传进来的数组，排好序后，重新输出；
+   /*
+   * 1.参数：乱序的数组
+   * 2.返回值：排好序的数组
+   * */
+    function quickSort(ary){ //形参
+        //5.停止拆分的条件判断
+        if(ary.length<=1){ //当数组的长度<=1的时候，不再拆分，直接输出即可；
+            return ary; //return语句起两个作用：1）返回值 2）阻断程序执行的作用；
+        }
+        //1.拿到数组的中间位置
+        var num=Math.floor(ary.length/2);
+        //2.拿到中间位置对应的值；
+        var numValue=ary.splice(num,1)[0];
+        var left=[];
+        var right=[];
+        //3.拿数组的每一项跟中间值进行比较，比他大，放右边数组，比他小，放左边数组
+        for(var i=0; i<ary.length; i++){
+            var cur=ary[i]; //数组中的每一项
+            if(cur<numValue){
+                left.push(cur)
+            }else{
+                right.push(cur);
+            }
+        }
+        //4.输出数组的拼接：quickSort(left).concat(center,quickSort(right));
+        return quickSort(left).concat([numValue],quickSort(right))
+    }
+   console.log(quickSort(ary)) //实参
+</script>
+</body>
+</html>

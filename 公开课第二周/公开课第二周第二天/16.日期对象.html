@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    //如果传进来的是1位数，把它变成两位数；
+    function toDou(n){//保证数据数据类型的一致性；
+        return n>=0 && n<10? '0'+n:''+n;
+    }
+    function clock(){
+        var oDate=new Date(); //oDate:都是自己电脑的时间，不准确，开发中，用的都是后台给的毫秒数，然后自己进行秒转换
+        var y=oDate.getFullYear();
+        var m=oDate.getMonth(); //在获取月份的时候，要+1；
+        var d=oDate.getDate();
+        var week=oDate.getDay();
+        var h=oDate.getHours();
+        var min=oDate.getMinutes();
+        var s=oDate.getSeconds();
+        var str=toDou(h)+':'+toDou(min)+':'+toDou(s);
+        document.body.innerHTML=str;
+    }
+    clock();
+    setInterval(clock,1000);//第二个参数是毫秒数
+    /*switch (week){//比较复杂，但是思路简单
+        case 0:
+            alert('今天星期日');
+            break;
+        case 1:
+            alert('今天星期一');
+            break;
+        default :
+            alert('随便星期几');
+            break;
+    }*/
+    //思路2：用数组
+    /*var ary=['日','一','二','三','四','五','六'];
+    alert('今天星期'+ary[week])*/
+    //思路3：字符串
+    //alert('今天星期'+('日一二三四五六'.charAt(week)));
+</script>
+</body>
+</html>

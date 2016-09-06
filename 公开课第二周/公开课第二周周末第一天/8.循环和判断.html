@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        li{
+            height: 40px;
+        }
+        li.bg0{
+            background: lightgreen;
+        }
+        li.bg1{
+            background: lightgoldenrodyellow;
+        }
+        li.bg2{
+            background: lightblue;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<script>
+    var aLi=document.getElementsByTagName('li');
+    //循环4步骤：1.初始化 2.条件 3.语句 4.自增
+    /*for(var i=0; i<aLi.length; i++){//i会发生改变 %的小技巧：有几种情况就%几
+        if(i%3==0){//颜色1
+            aLi[i].className='bg0';
+        }else if(i%3==1){//颜色2
+            aLi[i].className='bg1';
+        }else{//颜色3
+            aLi[i].className='bg2';
+        }
+
+    }*/
+    //现在的while循环，是当for循环使的，所以，步骤跟for循环一样；
+    var i=0;
+    while(i<aLi.length){
+        switch (i%3){
+            case 0:
+                aLi[i].className='bg0';
+                break;
+            case 1:
+                aLi[i].className='bg1';
+                break;
+            default :
+                aLi[i].className='bg2';
+                break;
+        }
+        i++; //while循环一定一定要自增；否则，会死循环
+    }
+</script>
+</body>
+</html>
